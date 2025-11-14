@@ -1,28 +1,216 @@
-# EEG Sleep Stage Classification Demo (DSP + ML)
+# EEG Sleep Stage Classification — Demo Application
 
-This project is a **demo application** for our DSP501 final project:  
-**"EEG Sleep Stage Classification via Digital Signal Processing and Machine Learning"**.
+### DSP501 Final Project · Streamlit Deployment Guide
 
-The goal of this demo is to show that our trained model can:
-1. Load a pre-trained sleep stage classifier (trained on Sleep-EDF using DSP features),
-2. Accept an external 30s epoch **feature vector** as input (24 DSP features),
-3. Predict the corresponding **sleep stage** (Wake, N1, N2, N3, REM),
-4. Visualize the class probability distribution.
+This demo application showcases our DSP + Machine Learning pipeline for **automatic EEG sleep stage classification**.
+It loads pre-trained models and allows users to upload new EEG DSP feature files to obtain sleep stage predictions in real-time.
+
+The instructions below show **exactly how to set up the environment, install dependencies, and run the Streamlit app**.
 
 ---
 
-## Project Structure
+# 📁 Project Structure
 
-```bash
+```
 eeg_sleep_demo/
 ├── app.py                    # Streamlit demo app
 ├── requirements.txt          # Python dependencies
-├── README.md                 # This file
+├── README.md                 # This guide
+│
 ├── models/
-│   ├── logistic_regression_base.pkl   # Model trained on BASE features
-│   └── logistic_regression_ica.pkl    # Model trained on ICA-cleaned features
+│   ├── logistic_regression_base.pkl   # Trained on BASE features (no ICA)
+│   └── logistic_regression_ica.pkl    # Trained on ICA-cleaned features
+│
 ├── results/
 │   ├── label_map.json                 # id2label + label2id mapping
-│   └── best_models_summary.json       # (optional) best model info
+│   └── best_models_summary.json       # Optional
+│
 └── data_demo/
-    └── demo_sample.csv                # Example external input feature vector
+    └── demo_sample.csv                # Example external feature file (unseen input)
+```
+
+---
+
+# 🚀 1. Clone or Download the Project
+
+If using GitHub:
+
+```bash
+git clone https://github.com/your-repo/eeg_sleep_demo.git
+cd eeg_sleep_demo
+```
+
+If downloaded as `.zip`, extract and move into the project folder:
+
+```bash
+cd eeg_sleep_demo
+```
+
+---
+
+# 🧩 2. Create a Virtual Environment (.venv)
+
+This ensures a clean and isolated Python environment.
+
+## macOS / Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+## Windows (PowerShell)
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+You should now see something like:
+
+```
+(.venv) user@computer:~/eeg_sleep_demo
+```
+
+---
+
+# 📦 3. Install Dependencies
+
+If your project already has a `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+If you want to manually install the required libraries:
+
+```bash
+pip install streamlit numpy pandas scikit-learn seaborn matplotlib joblib
+```
+
+---
+
+# 📜 4. (Optional) Generate a Fresh requirements.txt
+
+If you've installed libraries and want to export the exact environment:
+
+```bash
+pip freeze > requirements.txt
+```
+
+This ensures others can reproduce the same environment.
+
+---
+
+# 🧠 5. Verify Model & Resource Files
+
+Make sure the following files exist before running the app:
+
+* `models/logistic_regression_base.pkl`
+* `models/logistic_regression_ica.pkl`
+* `results/label_map.json`
+* `data_demo/demo_sample.csv`
+* `app.py`
+
+If any file is missing → the app will fail to load.
+
+---
+
+# ▶️ 6. Run the Streamlit Application
+
+Inside the activated `.venv`, run:
+
+```bash
+streamlit run app.py
+```
+
+You will see output like:
+
+```
+You can now view your Streamlit app in your browser.
+
+Local URL: http://localhost:8501
+```
+
+Open the link to access the UI.
+
+---
+
+# 🖥️ 7. How to Use the App
+
+Inside the Streamlit interface, you can:
+
+### ✔ Select Model:
+
+* **BASE model** (trained without ICA)
+* **ICA model** (artifact-cleaned features)
+
+### ✔ Choose Input Type:
+
+* Random feature vector (for testing UI)
+* Manual input (24 comma-separated values)
+* Pre-loaded `demo_sample.csv`
+* Upload your own `.csv` file (must have exactly **24 numeric values**)
+
+### ✔ The App Will Display:
+
+* Predicted sleep stage label (Wake / N1 / N2 / N3 / REM)
+* Class ID (integer)
+* Probability bar chart
+* A final summary explaining the result
+
+---
+
+# 🔍 8. Format of External Input File
+
+Your `.csv` must contain:
+
+* Exactly **one row**
+* Exactly **24 values** (the DSP features for one 30-second epoch)
+* No header needed
+
+Example (`data_demo/demo_sample.csv`):
+
+```
+0.15, -0.23, 0.88, -1.23, 0.55, 
+1.14, 0.22, -0.44, 0.01, 0.77,
+1.33, 0.06, -0.92, 0.55, 0.29,
+1.12, -0.42, 0.11, 0.21, -0.85,
+0.74, 0.02, 1.34, -0.55
+```
+
+This file simulates an unseen external 30-second EEG epoch after DSP feature extraction.
+
+---
+
+# 🎯 9. Example Prediction Output
+
+After uploading an input file, you might see:
+
+```
+Predicted Sleep Stage: Sleep stage 2
+Class ID: 2
+```
+
+Followed by a bar chart showing the probability distribution.
+
+This demonstrates the complete DSP → Feature Extraction → ML inference process.
+
+---
+
+# 🧹 10. Deactivate Virtual Environment
+
+When you're done:
+
+### macOS / Linux
+
+```bash
+deactivate
+```
+
+### Windows
+
+```powershell
+deactivate
+```
+

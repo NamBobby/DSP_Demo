@@ -1,0 +1,10 @@
+{
+    "base": {
+        "best_model_name": "Logistic Regression",
+        "file": "models/best_model_base_logistic_regression.pkl"
+    },
+    "ica": {
+        "best_model_name": "Logistic Regression",
+        "file": "models/best_model_ica_logistic_regression.pkl"
+    }
+}
