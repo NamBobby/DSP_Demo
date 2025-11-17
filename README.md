@@ -7,29 +7,16 @@ It loads pre-trained models and allows users to upload new EEG DSP feature files
 
 The instructions below show **exactly how to set up the environment, install dependencies, and run the Streamlit app**.
 
----
 
-# 📁 Project Structure
+To support transparency and reproducibility, we make our implementation publicly available:
 
-```
-eeg_sleep_demo/
-├── app.py                    # Streamlit demo app
-├── requirements.txt          # Python dependencies
-├── README.md                 # This guide
-│
-├── models/
-│   ├── logistic_regression_base.pkl   # Trained on BASE features (no ICA)
-│   └── logistic_regression_ica.pkl    # Trained on ICA-cleaned features
-│
-├── results/
-│   ├── label_map.json                 # id2label + label2id mapping
-│   └── best_models_summary.json       # Optional
-│
-└── data_demo/
-    └── demo_sample.csv                # Example external feature file (unseen input)
-```
-
----
+GitHub demo repository (Demo implementation):
+https://github.com/NamBobby/DSP_Demo
+Kaggle notebook (Main contribution):
+https://www.kaggle.com/code/namle25/eeg-sleep-stage-dsp-implementation
+Overleaf Technical Report (Full LaTeX Project):
+https://www.overleaf.com/read/vjnzpkvsxbfs#2594d5
+x1
 
 # 🚀 1. Clone or Download the Project
 
