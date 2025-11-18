@@ -1,24 +1,30 @@
-# EEG Sleep Stage Classification — Demo Application
+# EEG Sleep Stage Classification  
+### *FPT School of Business & Technology (FSB)*  
+### **Group 3 – DSP501 Final Project**
 
-### DSP501 Final Project · Streamlit Deployment Guide
+This repository contains the demo implementation of our Digital Signal Processing (DSP) + Machine Learning (ML) pipeline for **automatic EEG sleep stage classification**.  
+The application includes:
 
-This demo application showcases our DSP + Machine Learning pipeline for **automatic EEG sleep stage classification**.
-It loads pre-trained models and allows users to upload new EEG DSP feature files to obtain sleep stage predictions in real-time.
+- Full DSP preprocessing pipeline  
+- Feature extraction (statistical, Hjorth, PSD)  
+- Logistic Regression / SVM / Random Forest models  
+- Streamlit app for real-time prediction  
+- Public reproducible code & report  
 
-The instructions below show **exactly how to set up the environment, install dependencies, and run the Streamlit app**.
+---
+
+# 📂 Project Resources
+
+| Resource | Link |
+|---------|------|
+| **GitHub Demo Repository** (main implementation) | https://github.com/NamBobby/DSP_Demo |
+| **Kaggle Notebook** (core contribution) | https://www.kaggle.com/code/namle25/eeg-sleep-stage-dsp-implementation |
+| **Overleaf Technical Report** | https://www.overleaf.com/read/vjnzpkvsxbfs#2594d5 |
+
+---
 
 
-To support transparency and reproducibility, we make our implementation publicly available:
-
-GitHub demo repository (Demo implementation):
-https://github.com/NamBobby/DSP_Demo
-Kaggle notebook (Main contribution):
-https://www.kaggle.com/code/namle25/eeg-sleep-stage-dsp-implementation
-Overleaf Technical Report (Full LaTeX Project):
-https://www.overleaf.com/read/vjnzpkvsxbfs#2594d5
-x1
-
-# 🚀 1. Clone or Download the Project
+# 1. Clone or Download the Project
 
 If using GitHub:
 
@@ -35,7 +41,7 @@ cd eeg_sleep_demo
 
 ---
 
-# 🧩 2. Create a Virtual Environment (.venv)
+# 2. Create a Virtual Environment (.venv)
 
 This ensures a clean and isolated Python environment.
 
@@ -61,7 +67,7 @@ You should now see something like:
 
 ---
 
-# 📦 3. Install Dependencies
+# 3. Install Dependencies
 
 If your project already has a `requirements.txt`:
 
@@ -77,7 +83,7 @@ pip install streamlit numpy pandas scikit-learn seaborn matplotlib joblib
 
 ---
 
-# 📜 4. (Optional) Generate a Fresh requirements.txt
+# 4. (Optional) Generate a Fresh requirements.txt
 
 If you've installed libraries and want to export the exact environment:
 
@@ -89,7 +95,7 @@ This ensures others can reproduce the same environment.
 
 ---
 
-# 🧠 5. Verify Model & Resource Files
+# 5. Verify Model & Resource Files
 
 Make sure the following files exist before running the app:
 
@@ -103,7 +109,7 @@ If any file is missing → the app will fail to load.
 
 ---
 
-# ▶️ 6. Run the Streamlit Application
+# 6. Run the Streamlit Application
 
 Inside the activated `.venv`, run:
 
@@ -123,7 +129,7 @@ Open the link to access the UI.
 
 ---
 
-# 🖥️ 7. How to Use the App
+# 7. How to Use the App
 
 Inside the Streamlit interface, you can:
 
@@ -148,7 +154,7 @@ Inside the Streamlit interface, you can:
 
 ---
 
-# 🔍 8. Format of External Input File
+# 8. Format of External Input File
 
 Your `.csv` must contain:
 
@@ -170,7 +176,7 @@ This file simulates an unseen external 30-second EEG epoch after DSP feature ext
 
 ---
 
-# 🎯 9. Example Prediction Output
+# 9. Example Prediction Output
 
 After uploading an input file, you might see:
 
@@ -185,7 +191,7 @@ This demonstrates the complete DSP → Feature Extraction → ML inference proce
 
 ---
 
-# 🧹 10. Deactivate Virtual Environment
+# 10. Deactivate Virtual Environment
 
 When you're done:
 
