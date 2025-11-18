@@ -1,6 +1,6 @@
 # EEG Sleep Stage Classification  
 ### *FPT School of Business & Technology (FSB)*  
-### **Group 3 – DSP501 Final Project**
+### **Group 3 – Final Assignment**
 
 This repository contains the demo implementation of our Digital Signal Processing (DSP) + Machine Learning (ML) pipeline for **automatic EEG sleep stage classification**.  
 The application includes:
