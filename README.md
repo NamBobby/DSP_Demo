@@ -13,7 +13,7 @@ The application includes:
 
 ---
 
-# 📂 Project Resources
+# Project Resources
 
 | Resource | Link |
 |---------|------|
@@ -133,19 +133,19 @@ Open the link to access the UI.
 
 Inside the Streamlit interface, you can:
 
-### ✔ Select Model:
+### Select Model:
 
 * **BASE model** (trained without ICA)
 * **ICA model** (artifact-cleaned features)
 
-### ✔ Choose Input Type:
+### Choose Input Type:
 
 * Random feature vector (for testing UI)
 * Manual input (24 comma-separated values)
 * Pre-loaded `demo_sample.csv`
 * Upload your own `.csv` file (must have exactly **24 numeric values**)
 
-### ✔ The App Will Display:
+### The App Will Display:
 
 * Predicted sleep stage label (Wake / N1 / N2 / N3 / REM)
 * Class ID (integer)
